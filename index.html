@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fiesta Pizza — Fresh, Hot & Cheesy</title>
+  <meta name="description" content="Fiesta Pizza — Hand-tossed pizzas, sides and drinks. Fresh ingredients, fast delivery. Order now!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0f0f14; --card:#171723; --soft:#1f2030; --brand:#ff3d3d; --accent:#ffd166; --text:#f2f2f5; --muted:#b9bbbe;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      color:var(--text); background:linear-gradient(180deg,#0f0f14, #12121a 40%, #0f0f14);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    /* Header */
+    .container{width:min(1120px,92%); margin-inline:auto}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(10px);
+      background:rgba(15,15,20,.7); border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .logo{width:36px; height:36px; border-radius:50%; background:
+      radial-gradient(circle at 35% 30%, #fff3, #0000 45%),
+      conic-gradient(from 210deg at 70% 40%, #ff8a8a, #ff3d3d 40%, #ff7a00 80%, #ff8a8a 100%);
+      box-shadow:0 0 0 3px #0004, 0 10px 20px #0008
+    }
+    .menu{display:flex; gap:20px; align-items:center}
+    .menu a{padding:8px 10px; color:var(--muted)}
+    .menu a:hover{color:#fff}
+    .cta{background:var(--brand); color:#fff; padding:10px 16px; border-radius:999px; font-weight:700; box-shadow:0 8px 20px #ff3d3d33}
+    .burger{display:none; width:40px; height:40px; border:1px solid #ffffff22; border-radius:12px; align-items:center; justify-content:center; background:#ffffff06}
+    #mobileNav{display:none; flex-direction:column; gap:10px; padding:10px 0 16px}
+    #mobileNav a{padding:10px 12px; border:1px solid #ffffff14; border-radius:10px; background:#13131c}
+    /* Hero */
+    .hero{
+      background:#19191f; color:#fff; text-align:center; padding:80px 0
+    }
+    .badge{display:inline-flex; gap:8px; align-items:center; background:#ffffff14; padding:8px 12px; border-radius:999px; border:1px solid #ffffff28; font-size:14px}
+    .hero h1{font-size:clamp(32px,5vw,56px); margin:14px 0 10px}
+    .hero p{color:#e8e8ec; max-width:680px; margin:auto}
+    .hero .actions{display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px}
+    .ghost{border:1px solid #ffffff2a; padding:10px 16px; border-radius:999px; background:#ffffff10; color:#fff}
+    section{padding:64px 0}
+    .grid{display:grid; gap:18px}
+    .cards{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+    .card{
+      background:linear-gradient(180deg, #181824, #13131b);
+      border:1px solid #ffffff0f; border-radius:18px; padding:14px
+    }
+    .price{display:flex; align-items:center; justify-content:space-between; margin-top:6px}
+    .pill{font-size:13px; background:#ffffff10; border:1px solid #ffffff1a; padding:6px 10px; border-radius:999px; color:#fff}
+    .add{border:none; border-radius:10px; padding:10px 12px; font-weight:700; background:var(--brand); color:#fff; cursor:pointer}
+    .section-title{font-size:clamp(24px,3.4vw,36px); margin:0 0 6px}
+    .muted{color:var(--muted)}
+    .about{display:grid; grid-template-columns:1fr; gap:24px}
+    .panel{
+      background:linear-gradient(180deg, #181824, #13131b);
+      border:1px solid #ffffff0f; border-radius:18px; padding:20px
+    }
+    form{display:grid; gap:12px}
+    input, textarea{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid #ffffff1a;
+      background:#12121b; color:#fff; font:inherit
+    }
+    textarea{min-height:110px; resize:vertical}
+    .footer{padding:26px 0; border-top:1px solid #ffffff10; color:#c9c9d3; text-align:center}
+    @media (max-width:900px){
+      .menu{display:none}
+      .burger{display:inline-flex}
+      #mobileNav.show{display:flex}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Main">
+        <div class="brand">
+          <div class="logo"></div>
+          <a href="#">Fiesta Pizza</a>
+        </div>
+        <div class="menu">
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="https://wa.me/923270553470?text=Hi%20Fiesta%20Pizza!%20I%20want%20to%20order%20🍕" target="_blank" rel="noopener">Order Now</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M3 6h18M3 12h18M3 18h18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+      <div id="mobileNav" class="container">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="https://wa.me/923270553470?text=Hi%20Fiesta%20Pizza!%20I%20want%20to%20order%20🍕" target="_blank" rel="noopener">Order Now</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="badge">🔥 Fresh • Fast • Cheesy</span>
+    <h1>Delicious Pizza, Delivered Hot!</h1>
+    <p>Fresh dough, premium toppings & quick delivery. Call or WhatsApp now!</p>
+    <div class="actions">
+      <a class="cta" href="#menu">View Menu</a>
+      <a class="ghost" href="https://wa.me/923270553470?text=I%20want%20to%20order%20a%20pizza%20🍕" target="_blank">WhatsApp Order</a>
+    </div>
+  </section>
+
+  <section id="menu" class="container">
+    <h2 class="section-title">Our Menu</h2>
+    <p class="muted">Pictures removed for faster load. WhatsApp for full menu.</p>
+    <div class="grid cards">
+      <div class="card">
+        <h3>Margherita</h3>
+        <p class="muted">Classic cheese & tomato.</p>
+        <div class="price"><span class="pill">Rs 1,299</span><button class="add" data-item="Margherita">Add</button></div>
+      </div>
+      <div class="card">
+        <h3>Pepperoni</h3>
+        <p class="muted">Loaded pepperoni & cheese.</p>
+        <div class="price"><span class="pill">Rs 1,699</span><button class="add" data-item="Pepperoni">Add</button></div>
+      </div>
+      <div class="card">
+        <h3>BBQ Chicken</h3>
+        <p class="muted">Smoky BBQ & grilled chicken.</p>
+        <div class="price"><span class="pill">Rs 1,899</span><button class="add" data-item="BBQ Chicken">Add</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="container">
+    <div class="panel">
+      <h2 class="section-title">About Us</h2>
+      <p>We make pizzas with fresh dough and premium toppings. Fast delivery across town.</p>
+      <ul>
+        <li>⏱️ Mon–Sun, 12pm–12am</li>
+        <li>📍 Location: Your City</li>
+        <li>📞 Phone: 0327 0553470</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <div class="grid" style="grid-template-columns:1fr .9fr; gap:22px">
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="tel" name="phone" placeholder="Phone number" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button class="cta" type="submit">Send via WhatsApp</button>
+      </form>
+      <div class="card" style="padding:18px">
+        <h3>Find Us</h3>
+        <p class="muted">Your location here</p>
+        <iframe title="Map" style="border:0; width:100%; height:260px; border-radius:14px"
+          loading="lazy"
+          src="https://www.google.com/maps?q=Lahore%20Pakistan&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Fiesta Pizza | Call: 0327 0553470</p>
+  </footer>
+
+  <script>
+    const burger=document.getElementById('burger'),mobileNav=document.getElementById('mobileNav');
+    burger.addEventListener('click',()=>{const open=mobileNav.classList.toggle('show');burger.setAttribute('aria-expanded',open?'true':'false');});
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const order=[];document.querySelectorAll('.add').forEach(btn=>{btn.addEventListener('click',()=>{order.push(btn.dataset.item);alert('Added: '+btn.dataset.item);});});
+    document.getElementById('contactForm').addEventListener('submit',e=>{
+      e.preventDefault();const d=new FormData(e.target);
+      const text=encodeURIComponent(`Hi Fiesta Pizza!\nName: ${d.get('name')}\nPhone: ${d.get('phone')}\nMessage: ${d.get('message')}${order.length?`\nItems: ${order.join(', ')}`:''}`);
+      window.open(`https://wa.me/923270553470?text=${text}`,'_blank');
+    });
+  </script>
+</body>
+</html>
